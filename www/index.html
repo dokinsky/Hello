@@ -33,10 +33,26 @@
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
+        <div id="geolocation">Finding Location</div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onDeviceReady() {
+            	navigator.geoLocation.getCurrentPosition(onSuccess, onError);
+            }
+            
+            var onSuccess = function(position) {
+            	var element = document.getElementById('geoLocation');
+            	element.innerHTML = "Latitude: " + position.coords.latitude;
+			   };
+			   
+			function onError(error){
+				alert(error.message);
+			}
         </script>
     </body>
 </html>
