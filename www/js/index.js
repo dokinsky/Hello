@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        //this.bindEvents();
+        this.bindEvents();
     },
     // Bind Event Listeners
     //
@@ -34,6 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        navigator.geoLocation.getCurrentPosition(onSuccess, onError);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

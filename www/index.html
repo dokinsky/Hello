@@ -21,11 +21,12 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
     </head>
     <body>
+        <p id="geolocation">Finding Location</p>
         <div class="app">
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">
@@ -33,17 +34,18 @@
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
-        <div id="geolocation">Finding Location</div>
-        <script type="text/javascript" src="phonegap.js"></script>
+        
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
+            //app.initialize();
             
-            document.addEventListener("deviceready", onDeviceReady, false);
+            //document.addEventListener("deviceready", onDeviceReady, false);
             
-            function onDeviceReady() {
-            	navigator.geoLocation.getCurrentPosition(onSuccess, onError);
-            }
+            //function onDeviceReady() {
+            	
+            //}
             
             var onSuccess = function(position) {
             	var element = document.getElementById('geoLocation');
@@ -53,6 +55,8 @@
 			function onError(error){
 				alert(error.message);
 			}
+			
+			navigator.geoLocation.getCurrentPosition(onSuccess, onError);
         </script>
     </body>
 </html>
