@@ -34,7 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        navigator.geoLocation.getCurrentPosition(onSuccess, onError);
+        navigator.geoLocation.getCurrentPosition(this.onSuccess, this.onError);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -46,5 +46,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    onSuccess: function(position){
+    	var element = document.getElementById('geoLocation');
+    	element.innerHTML = "latitude:  " + position.coords.latitude;
+    },
+    onError: function(error){
+    	alert(error.message)
     }
 };
