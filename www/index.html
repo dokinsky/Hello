@@ -27,6 +27,7 @@
     </head>
     <body>
         <p id="geolocation">Finding Location</p>
+        <div id="contacts"></div>
         <div class="app">
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">
@@ -39,24 +40,30 @@
         
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
+            //app.initialize();
+            $("#contacts").html("first contact")
+            document.addEventListener("deviceready", onDeviceReady, false);
             
-            //document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+            	var options = new ContactFindOptions();
+            	options.filter = "Bob";
+            	var fields = ["displayName", "name"];
+            	navigator.contacts.find(fields, onSuccess, onError, options);
+            }
             
-            //function onDeviceReady() {
-            	
-            //}
+            function onSuccess(contacts){
+            	var contactDiv = $("#contacts");
+            	contactDiv.prepend("Test");
+            	for (var i = 0; i < contacts.length; i++){
+            		//console.log("Display Name = " + contacts[i].displayName);
+            		$("#contacts").append("<div>" + contacts[i].displayName + "</div>")
+            	}
+            }
             
-            var onSuccess = function(position) {
-            	var element = document.getElementById('geoLocation');
-            	element.innerHTML = "Latitude: " + position.coords.latitude;
-			   };
-			   
-			function onError(error){
-				alert(error.message);
-			}
-			
-			navigator.geoLocation.getCurrentPosition(onSuccess, onError);
+            function onError(contactError){
+            	alert("ERROR!!");
+            }
+            
         </script>
     </body>
 </html>
