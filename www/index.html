@@ -1,41 +1,8 @@
 <html>
   <head>
     <title>Contact Example</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-        // find all contacts with 'Bob' in any name field
-        var options = new ContactFindOptions();
-        options.filter="Bob"; 
-        var fields = ["displayName", "name"];
-        navigator.contacts.find(fields, onSuccess, onError, options);
-    }
-
-    // onSuccess: Get a snapshot of the current contacts
-    //
-    function onSuccess(contacts) {
-        for (var i=0; i<contacts.length; i++) {
-            console.log("Display Name = " + contacts[i].displayName);
-        }
-    }
-
-    // onError: Failed to get the contacts
-    //
-    function onError(contactError) {
-        alert('onError!');
-    }
-
-    </script>
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.4.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
 	<button id="submitForm" class="ui-btn">Submit Event</button>
