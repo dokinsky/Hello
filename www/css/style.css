@@ -1,0 +1,46 @@
+body{}
+p{
+	padding:10px;
+}
+
+.button{
+	text-decoration:none;
+	color:white;
+	background-color:#8888ee;
+	padding:10px;
+	box-shadow:5px 5px 5px #000088;
+	border: 1px solid #000000;
+	border-radius:10px;
+	margin:auto;
+	font-size:25px;
+}
+.button:hover{
+	box-shadow:5px 5px 5px #888800;
+	background-color:#eeee88;
+	color:black;
+}
+
+.LocationType{
+	display:inline;
+	margin:auto;	
+}
+
+.IncidentButton {
+	background: green;
+	
+}
+
+.IncidentButtonSelected{
+	background: green;
+	font-size: 30px;
+}
+
+.streetDisplay{
+	margin: auto;
+	text-align: center;
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
